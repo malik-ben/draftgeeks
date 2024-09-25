@@ -3,6 +3,13 @@ import pandas as pd
 import json
 import requests
 import streamlit as st
+import sys
+import os
+
+# Add the package directory to sys.path
+sys.path.append(os.path.abspath('streamlit_pandas-0.0.9'))
+
+# Now you can import modules from the package
 import streamlit_pandas as sp
 st.set_page_config(layout="wide")
 
