@@ -60,10 +60,13 @@ standings = y['standings']['results']
 df = pd.DataFrame(standings)
 df = df[['player_name','entry_name','rank','total']]
 
+event = requests.get('https://fantasy.premierleague.com/api/entry/10100406/')
+event = json.loads(event.text)['current_event']
+
 
 mercenaire = []
 for connard in standings:
-    picks = requests.get('https://fantasy.premierleague.com/api/entry/{}/event/5/picks/'.format(connard['entry']))
+    picks = requests.get('https://fantasy.premierleague.com/api/entry/{}/event/{}/picks/'.format(connard['entry'],event))
     picks = json.loads(picks.text)['picks']
     for i in picks:
         mercenaire.append([connard['entry_name'],i['element']])
