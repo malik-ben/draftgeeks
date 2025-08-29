@@ -31,7 +31,7 @@ ignore =['id','form','points_per_game', 'status',
          'clean_sheets', 'goals_conceded', 'saves', 
          'ict_index', 'starts','event_points','selected_by_percent' ]
 
-x = requests.get('https://fantasy.premierleague.com/api/leagues-classic/2250375/standings/')
+x = requests.get('https://fantasy.premierleague.com/api/leagues-classic/2235061/standings/')
 players = requests.get('https://fantasy.premierleague.com/api/bootstrap-static/')
 
 players = json.loads(players.text)['elements']
@@ -60,7 +60,7 @@ standings = y['standings']['results']
 df = pd.DataFrame(standings)
 df = df[['player_name','entry_name','rank','total']]
 
-event = requests.get('https://fantasy.premierleague.com/api/entry/10100406/')
+event = requests.get('https://fantasy.premierleague.com/api/entry/9957599/')
 event = json.loads(event.text)['current_event']
 
 
